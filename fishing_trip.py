@@ -129,6 +129,7 @@ while play_state != "N":
         print("So are you willing to share?\n")
 
     if menu_choice == 4:
+        print("Entering 0 if you no longer wish to go through with your bait purchase \n")
         print(f"You currently have {bait} bait.")
         bait_purchase_amount = int(input(
             "Please enter the amount of bait ($25 per) you would like to purchase (Whole numbers only).\n"))
