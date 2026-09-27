@@ -118,4 +118,10 @@ while play_state != "N":
             player_money += fish_price_check
         print("Thank you for your business")
 
+    if menu_choice == 3:
+        print(f"\nYou have ${player_money}")
+        print(".")
+        print("..")
+        print("...")
+        print("So are you willing to share?\n")
     # play_state = input("Would you like to go fishing (Y/N)?").upper()
