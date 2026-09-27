@@ -44,14 +44,15 @@ Good luck have fun
 Also I suggest using bait""")
 
 while play_state != "N":
-    print()
+    print("--------------------")
     print("""   Fishing Trip
 1: Fish!!!
 2: Sell Fish
 3: Check Money
 4: Buy Bait
 5: See Your Haul
-6: Call it A Day\n""")
+6: Call it A Day""")
+    print("--------------------\n")
 
     menu_choice = int(
         input("What would you like to do, pick a number 1 - 6:\n"))
