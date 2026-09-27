@@ -9,7 +9,7 @@ from random import randint
 """Choice: This is will be use to pick a random fish to for the user to catch"""
 print("Welcome angler, let's get to fishing.\n")
 
-starting_money = 100
+starting_money = 10000
 # player_name = input("Welcome to the pond \nWhat do you call yourself?\n")
 player_name = "Brandon"
 fish_stored = []
@@ -77,12 +77,15 @@ while play_state != "N":
             print(
                 f"Nice nice, you caught a {random_fish_pull} I would say you could sell it for about ${fish_price_check}")
             sell_now = input(
-                f"Would you like to sell that {random_fish_pull} now(Yes/No)?").upper().strip()
+                f"Would you like to sell that {random_fish_pull} now(Y/N)?").upper().strip()
 
-            if sell_now == "Yes":
+            if sell_now == "Y":
                 player_money += fish_price_check
                 print("Pleasure doing business with you")
                 fish_stored.remove(random_fish_pull)
+            elif sell_now == "N":
+                print(
+                    f"Keep your {random_fish_pull} I didn't want to buy it anyway.")
             else:
                 print(
                     f"Ill just take that as a no \nKeep your {random_fish_pull} I didn't want to buy it anyway.")
@@ -95,12 +98,15 @@ while play_state != "N":
             print(
                 f"You caught a {random_fish_pull} :| \nIt's not worth much only ${fish_price_check}\n")
             sell_now = input(
-                f"Would you like to sell that {random_fish_pull} now(Yes/No)?").upper().strip()
+                f"Would you like to sell that {random_fish_pull} now(Y/N)?").upper().strip()
 
-            if sell_now == "Yes":
+            if sell_now == "Y":
                 player_money += fish_price_check
                 print("Pleasure doing business with you")
                 fish_stored.remove(random_fish_pull)
+            elif sell_now == "N":
+                print(
+                    f"Keep your {random_fish_pull} I didn't want to buy it anyway.")
             else:
                 print(
                     f"Ill just take that as a no \nKeep your {random_fish_pull} I didn't want to buy it anyway.")
@@ -148,7 +154,9 @@ while play_state != "N":
             f"You bought {bait_purchase_amount} bait. \nYou have ${player_money} left.\n")
 
     if menu_choice == 5 and fish_stored != []:
-        pass
+        print("You have might haul here \nSo far you've caught:")
+        for fish in fish_stored:
+            print(fish)
     elif menu_choice == 5 and fish_stored == []:
         print("I've been looking for like 5 whole nanoseconds and I dont see anything in here\n"
               "Maybe try catching something before you try looking at your haul.")
