@@ -7,7 +7,7 @@ from random import choice
 from random import randint
 """Randint: Imported for the purpose of having randomness to the hooking of a fish, allow the action to fail."""
 """Choice: This is will be use to pick a random fish to for the user to catch"""
-print("Welcome angler, let's get to fishing.")
+print("Welcome angler, let's get to fishing.\n")
 
 starting_money = 100
 # player_name = input("Welcome to the pond \nWhat do you call yourself?\n")
@@ -33,13 +33,13 @@ while play_state != "Y" and play_state != "N":
 
 if play_state == "Y":
     print("""Your ready to cast your line!
-    Good let me give you the run down
-    The game is very simple you Fish!!!, and if you get luck
-    You catch whatever you hook, then you have the option to sell it now or later
-    Bare in mind though if you dont sell your fish before you call it a day
-    Back in the pond they go.
-    Good luck have fun
-    Also I suggest using bait""")
+Good let me give you the run down
+The game is very simple you Fish!!!, and if you get luck
+You catch whatever you hook, then you have the option to sell it now or later
+Bare in mind though if you dont sell your fish before you call it a day
+Back in the pond they go.
+Good luck have fun
+Also I suggest using bait""")
 
 while play_state != "N":
     print()
@@ -58,6 +58,28 @@ while play_state != "N":
         break
 
     if menu_choice == 1:
-        pass
+        catch_or_not = randint(0, 1)
+        if catch_or_not == 0 and bait > 0:
+            bait -= 1
+            print("Dang that fish was such a monster it snapped the line and stole the bait.\n What a waste of good bait.")
+
+        elif catch_or_not == 0 and bait == 0:
+            print("Don't ask me how... \nBut the Goldfish broke the line and got away \nYou might wanna get a better fishing line just saying.")
+
+        elif catch_or_not == 1 and bait > 0:
+            bait -= 1
+            random_fish_pull = choice(list(fishes_and_prices))
+            fish_price_check = fishes_and_prices[random_fish_pull]
+            fish_stored.append(random_fish_pull)
+            print(
+                f"Nice nice, you caught a {random_fish_pull} I would say you could sell it for about ${fish_price_check}")
+
+        elif catch_or_not == 1 and bait == 0:
+            random_fish_pull = "Goldfish"
+            fish_price_check = fishes_and_prices[random_fish_pull]
+            fish_stored.append(random_fish_pull)
+            print()
+            print(
+                f"You caught a {random_fish_pull} :| \nIt's not worth much only ${fish_price_check}")
 
     # play_state = input("Would you like to go fishing (Y/N)?").upper()
