@@ -14,6 +14,7 @@ starting_money = 100
 player_name = "Brandon"
 fish_stored = []
 bait = 0
+fish_count_to_sell = 1
 # If player has no bait they only catch goldfish
 
 player_money = starting_money
@@ -91,7 +92,7 @@ while play_state != "N":
             fish_stored.append(random_fish_pull)
             print()
             print(
-                f"You caught a {random_fish_pull} :| \nIt's not worth much only ${fish_price_check}")
+                f"You caught a {random_fish_pull} :| \nIt's not worth much only ${fish_price_check}\n")
             sell_now = input(
                 f"Would you like to sell that {random_fish_pull} now(Yes/No)?").upper().strip()
 
@@ -102,4 +103,19 @@ while play_state != "N":
             else:
                 print(
                     f"Ill just take that as a no \nKeep your {random_fish_pull} I didn't want to buy it anyway.")
+
+    if menu_choice == 2:
+        print("Looking to sell?\n")
+        for fish in fish_stored:
+            print(fish)
+        fish_to_sell = input(
+            "Please input a single type of fish you would like to sell:\n")
+        fish_price_check = fishes_and_prices[fish_to_sell]
+        if fish_stored.count(fish_to_sell) > 1:
+            fish_count_to_sell = int(input("How many are we selling today?\n"))
+        for count in fish_count_to_sell:
+            fish_stored.remove(fish_to_sell)
+            player_money += fish_price_check
+        print("Thank you for your business")
+
     # play_state = input("Would you like to go fishing (Y/N)?").upper()
