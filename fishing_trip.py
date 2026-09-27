@@ -32,6 +32,15 @@ while play_state.upper() != "Y" and play_state.upper() != "N":
         "\nPlease only used Y or N as your response\nWould you like to go fishing (Y/N)?")
 
 while play_state.upper() != "N":
+    print("""Your ready to cast your line!
+Good let me give you the run down
+The game is very simple you Fish!!!, and if you get luck
+You catch whatever you hook, then you have the option to sell it now or later
+Bare in mind though if you dont sell your fish before you call it a day
+Back in the pond they go.
+Good luck have fun
+Also I suggest using bait""")
+    print()
     print("""   Fishing Trip
 1: Fish!!!
 2: Sell Fish
@@ -39,4 +48,5 @@ while play_state.upper() != "N":
 4: Buy Bait
 5: See Your Haul
 6: Call it A Day""")
-    play_state = input("Would you like to go fishing (Y/N)?")
+
+    # play_state = input("Would you like to go fishing (Y/N)?")
