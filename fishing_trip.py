@@ -45,8 +45,13 @@ while play_state != "N":
 6: Call it A Day""")
     print("--------------------\n")
 
-    menu_choice = int(
-        input("What would you like to do, pick a number 1 - 6:\n"))
+    try:
+        menu_choice = int(
+            input("What would you like to do, pick a number 1 - 6:\n"))
+    except ValueError:
+        print("Please enter a positive whole number 1 - 6. \n")
+        continue
+
     if menu_choice == 6:
         play_state = "N"
         break
@@ -111,14 +116,17 @@ while play_state != "N":
                 print(fish)
             fish_to_sell = input(
                 "Please input a single type of fish you would like to sell:\n")
-            fish_price_check = fishes_and_prices[fish_to_sell]
-            if fish_stored.count(fish_to_sell) > 1:
-                fish_count_to_sell = int(
-                    input("How many are we selling today?\n"))
-            for count in fish_count_to_sell:
-                fish_stored.remove(fish_to_sell)
-                player_money += fish_price_check
-            print("Thank you for your business")
+            if fish_to_sell not in fishes_and_prices or fish_stored.count(fish_to_sell) == 0:
+                print("You don't have that fish.")
+            else:
+                fish_price_check = fishes_and_prices[fish_to_sell]
+                if fish_stored.count(fish_to_sell) > 1:
+                    fish_count_to_sell = int(
+                        input("How many are we selling today?\n"))
+                for count in range(fish_count_to_sell):
+                    fish_stored.remove(fish_to_sell)
+                    player_money += fish_price_check
+                print("Thank you for your business")
 
     if menu_choice == 3:
         print(f"\nYou have ${player_money}")
