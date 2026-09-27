@@ -49,6 +49,15 @@ while play_state != "N":
 3: Check Money
 4: Buy Bait
 5: See Your Haul
-6: Call it A Day""")
+6: Call it A Day\n""")
 
-    play_state = input("Would you like to go fishing (Y/N)?").upper()
+    menu_choice = int(
+        input("What would you like to do, pick a number 1 - 6:\n"))
+    if menu_choice == 6:
+        play_state = "N"
+        break
+
+    if menu_choice == 1:
+        pass
+
+    # play_state = input("Would you like to go fishing (Y/N)?").upper()
