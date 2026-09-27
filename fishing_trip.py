@@ -9,23 +9,14 @@ from random import randint
 """Choice: This is will be use to pick a random fish to for the user to catch"""
 print("Welcome angler, let's get to fishing.\n")
 
-starting_money = 10000
-# player_name = input("Welcome to the pond \nWhat do you call yourself?\n")
-player_name = "Brandon"
+starting_money = 100
 fish_stored = []
 bait = 0
 fish_count_to_sell = 1
-# If player has no bait they only catch goldfish
 
 player_money = starting_money
 fishes_and_prices = {"Black Crappie": 20, "Goldfish": 3, "Rainbow Trout": 50, "Rainbow Parrotfish": 25,
                      "Bass": 10, "Lionfish": 50, "Squidward": 15, "Whale Shark": 100, "Orca": 99, "Nurse Shark": 70}
-
-# random_fish_pull = choice(list(fishes_and_prices))
-# fish_price_check = fishes_and_prices[random_fish_pull]
-
-
-# print(f" You caught a {random_fish_pull} it worth ${fish_price_check}")
 
 play_state = input("Would you like to go fishing (Y/N)?").upper().strip()
 while play_state != "Y" and play_state != "N":
