@@ -26,15 +26,16 @@ fishes_and_prices = {"Black Crappie": 20, "Goldfish": 3, "Rainbow Trout": 50, "R
 
 # print(f" You caught a {random_fish_pull} it worth ${fish_price_check}")
 
-play_state = input("Would you like to go fishing (Y/N)?").upper()
+play_state = input("Would you like to go fishing (Y/N)?").upper().strip()
 while play_state != "Y" and play_state != "N":
     play_state = input(
-        "\nPlease only used Y or N as your response\nWould you like to go fishing (Y/N)?").upper()
+        "\nPlease only used Y or N as your response\nWould you like to go fishing (Y/N)?").upper().strip()
 
 if play_state == "Y":
-    print("""Your ready to cast your line!
+    print()
+    print("""You ready to cast your line!
 Good let me give you the run down
-The game is very simple you Fish!!!, and if you get luck
+The game is very simple you Fish!!!, and if you get lucky
 You catch whatever you hook, then you have the option to sell it now or later
 Bare in mind though if you dont sell your fish before you call it a day
 Back in the pond they go.
@@ -73,6 +74,16 @@ while play_state != "N":
             fish_stored.append(random_fish_pull)
             print(
                 f"Nice nice, you caught a {random_fish_pull} I would say you could sell it for about ${fish_price_check}")
+            sell_now = input(
+                f"Would you like to sell that {random_fish_pull} now(Yes/No)?").upper().strip()
+
+            if sell_now == "Yes":
+                player_money += fish_price_check
+                print("Pleasure doing business with you")
+                fish_stored.remove(random_fish_pull)
+            else:
+                print(
+                    f"Ill just take that as a no \nKeep your {random_fish_pull} I didn't want to buy it anyway.")
 
         elif catch_or_not == 1 and bait == 0:
             random_fish_pull = "Goldfish"
@@ -81,5 +92,14 @@ while play_state != "N":
             print()
             print(
                 f"You caught a {random_fish_pull} :| \nIt's not worth much only ${fish_price_check}")
+            sell_now = input(
+                f"Would you like to sell that {random_fish_pull} now(Yes/No)?").upper().strip()
 
+            if sell_now == "Yes":
+                player_money += fish_price_check
+                print("Pleasure doing business with you")
+                fish_stored.remove(random_fish_pull)
+            else:
+                print(
+                    f"Ill just take that as a no \nKeep your {random_fish_pull} I didn't want to buy it anyway.")
     # play_state = input("Would you like to go fishing (Y/N)?").upper()
