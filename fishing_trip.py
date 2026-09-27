@@ -49,4 +49,4 @@ Also I suggest using bait""")
 5: See Your Haul
 6: Call it A Day""")
 
-    # play_state = input("Would you like to go fishing (Y/N)?")
+    play_state = input("Would you like to go fishing (Y/N)?")
