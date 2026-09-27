@@ -106,18 +106,22 @@ while play_state != "N":
                     f"Ill just take that as a no \nKeep your {random_fish_pull} I didn't want to buy it anyway.")
 
     if menu_choice == 2:
-        print("Looking to sell?\n")
-        for fish in fish_stored:
-            print(fish)
-        fish_to_sell = input(
-            "Please input a single type of fish you would like to sell:\n")
-        fish_price_check = fishes_and_prices[fish_to_sell]
-        if fish_stored.count(fish_to_sell) > 1:
-            fish_count_to_sell = int(input("How many are we selling today?\n"))
-        for count in fish_count_to_sell:
-            fish_stored.remove(fish_to_sell)
-            player_money += fish_price_check
-        print("Thank you for your business")
+        if fish_stored == []:
+            print("You have nothing to sell come back when you actually catch something.")
+        else:
+            print("Looking to sell?\n")
+            for fish in fish_stored:
+                print(fish)
+            fish_to_sell = input(
+                "Please input a single type of fish you would like to sell:\n")
+            fish_price_check = fishes_and_prices[fish_to_sell]
+            if fish_stored.count(fish_to_sell) > 1:
+                fish_count_to_sell = int(
+                    input("How many are we selling today?\n"))
+            for count in fish_count_to_sell:
+                fish_stored.remove(fish_to_sell)
+                player_money += fish_price_check
+            print("Thank you for your business")
 
     if menu_choice == 3:
         print(f"\nYou have ${player_money}")
