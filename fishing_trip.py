@@ -30,3 +30,13 @@ play_state = input("Would you like to go fishing (Y/N)?")
 while play_state.upper() != "Y" and play_state.upper() != "N":
     play_state = input(
         "\nPlease only used Y or N as your response\nWould you like to go fishing (Y/N)?")
+
+while play_state.upper() != "N":
+    print("""   Fishing Trip
+1: Fish!!!
+2: Sell Fish
+3: Check Money
+4: Buy Bait
+5: See Your Haul
+6: Call it A Day""")
+    play_state = input("Would you like to go fishing (Y/N)?")
