@@ -146,4 +146,11 @@ while play_state != "N":
         bait += bait_purchase_amount
         print(
             f"You bought {bait_purchase_amount} bait. \nYou have ${player_money} left.\n")
+
+    if menu_choice == 5 and fish_stored != []:
+        pass
+    elif menu_choice == 5 and fish_stored == []:
+        print("I've been looking for like 5 whole nanoseconds and I dont see anything in here\n"
+              "Maybe try catching something before you try looking at your haul.")
+
     # play_state = input("Would you like to go fishing (Y/N)?").upper()
