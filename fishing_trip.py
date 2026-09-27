@@ -123,6 +123,9 @@ while play_state != "N":
                 if fish_stored.count(fish_to_sell) > 1:
                     fish_count_to_sell = int(
                         input("How many are we selling today?\n"))
+                    while fish_count_to_sell > fish_stored.count(fish_to_sell):
+                        fish_count_to_sell(int(input(
+                            f"How many would you like to sell.\nYou have {fish_stored.count(fish_to_sell)} to sell.")))
                 for count in range(fish_count_to_sell):
                     fish_stored.remove(fish_to_sell)
                     player_money += fish_price_check
