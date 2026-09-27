@@ -27,6 +27,6 @@ fishes_and_prices = {"Black Crappie": 20, "Goldfish": 3, "Rainbow Trout": 50, "R
 # print(f" You caught a {random_fish_pull} it worth ${fish_price_check}")
 
 play_state = input("Would you like to go fishing (Y/N)?")
-while play_state.upper() != "Y" or "N":
+while play_state.upper() != "Y" and play_state.upper() != "N":
     play_state = input(
         "\nPlease only used Y or N as your response\nWould you like to go fishing (Y/N)?")
