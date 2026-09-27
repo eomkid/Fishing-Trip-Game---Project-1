@@ -26,10 +26,10 @@ fishes_and_prices = {"Black Crappie": 20, "Goldfish": 3, "Rainbow Trout": 50, "R
 
 # print(f" You caught a {random_fish_pull} it worth ${fish_price_check}")
 
-play_state = input("Would you like to go fishing (Y/N)?")
-while play_state.upper() != "Y" and play_state.upper() != "N":
+play_state = input("Would you like to go fishing (Y/N)?").upper()
+while play_state != "Y" and play_state != "N":
     play_state = input(
-        "\nPlease only used Y or N as your response\nWould you like to go fishing (Y/N)?")
+        "\nPlease only used Y or N as your response\nWould you like to go fishing (Y/N)?").upper()
 
 if play_state == "Y":
     print("""Your ready to cast your line!
@@ -41,7 +41,7 @@ if play_state == "Y":
     Good luck have fun
     Also I suggest using bait""")
 
-while play_state.upper() != "N":
+while play_state != "N":
     print()
     print("""   Fishing Trip
 1: Fish!!!
@@ -51,4 +51,4 @@ while play_state.upper() != "N":
 5: See Your Haul
 6: Call it A Day""")
 
-    play_state = input("Would you like to go fishing (Y/N)?")
+    play_state = input("Would you like to go fishing (Y/N)?").upper()
