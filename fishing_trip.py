@@ -133,10 +133,16 @@ while play_state != "N":
         bait_purchase_amount = int(input(
             "Please enter the amount of bait ($25 per) you would like to purchase (Whole numbers only).\n"))
         purchase_cost = bait_purchase_amount * 25
-        while purchase_cost > player_money:
+        if bait_purchase_amount == 0:
+            continue
+        while purchase_cost > player_money and bait_purchase_amount != 0:
             print(
-                f"You don't have enough money for that purchase. \nYou only have ${player_money} and that amount of bait would cost ${purchase_cost}")
+                f"You don't have enough money for that purchase. \nYou only have ${player_money} and that amount of bait would cost ${purchase_cost}\n")
             bait_purchase_amount = int(
                 input("Please enter a smaller amount of bait ($25) to purchase.\n"))
             purchase_cost = bait_purchase_amount * 25
+        player_money -= purchase_cost
+        bait += bait_purchase_amount
+        print(
+            f"You bought {bait_purchase_amount} bait. \nYou have ${player_money} left.\n")
     # play_state = input("Would you like to go fishing (Y/N)?").upper()
