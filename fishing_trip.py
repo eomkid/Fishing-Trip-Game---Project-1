@@ -152,4 +152,21 @@ while play_state != "N":
         print("I've been looking for like 5 whole nanoseconds and I dont see anything in here\n"
               "Maybe try catching something before you try looking at your haul.")
 
-    # play_state = input("Would you like to go fishing (Y/N)?").upper()
+print("""Calling it a day already
+Well hope you had fun but lets see what you got from today.""")
+if fish_stored == []:
+    print(f"Oh you didn't catch anything :( \nBad RNG I guess")
+elif fish_stored != []:
+    print("Nicely done I respect the haul enjoy your dinner :)")
+    for fish in fish_stored:
+        print(fish)
+elif player_money <= 24 and bait != 0:
+    print("Maybe I should've made bait cheaper")
+    print(
+        f"Look at the bright side you had {bait} bait leftover that has to count for something.")
+elif player_money >= 10000:
+    print(f"${player_money} Are you ok?")
+elif 1000 > player_money > 100:
+    print(f"Pure profit :) \nWalking away with ${player_money}")
+else:
+    print("ByeBye Thank yous for playing :)")
