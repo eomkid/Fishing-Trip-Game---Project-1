@@ -46,6 +46,7 @@ while play_state != "N":
     print("--------------------\n")
 
     try:
+        """Error handling for invalid input in main menu"""
         menu_choice = int(
             input("What would you like to do, pick a number 1 - 6:\n"))
     except ValueError:
