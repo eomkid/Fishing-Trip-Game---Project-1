@@ -1,3 +1,5 @@
+# FIXME
+# New modules are not incorporated yet
 """Program: Fishing Trip
 Author: Brandon Barrett
 Description: This is a simple game about catch fish, selling what you caught to buy bait, and continuing to catch more fish.
