@@ -1,3 +1,6 @@
+from random import randint
+
+
 class Player:
     def __init__(self):
         self.money = 100
@@ -6,5 +9,12 @@ class Player:
         self.name = "Player1"
 
     def fish(self, bait):
-        # Would be too long with the use of a fishing class, create that first
+
         pass
+
+    def catch_check(self):
+        catch_or_not = randint(0, 1)
+        if catch_or_not == 1:
+            return True
+        else:
+            return False
