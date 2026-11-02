@@ -21,3 +21,19 @@ def test_random_fish_pull_no_bait_but_catch():
     assert fish == "Goldfish"
     assert price == 3
     assert bait_left == 0
+
+
+def test_random_fish_pull_miss_with_bait():
+    fish1 = Fish()
+    fish, price, bait_left = fish1.random_fish_pull(False, bait=2)
+    assert fish == ""
+    assert price == 0
+    assert bait_left == 1
+
+
+def test_random_fish_pull_miss_no_bait():
+    fish1 = Fish()
+    fish, price, bait_left = fish1.random_fish_pull(False, bait=0)
+    assert fish == ""
+    assert price == 0
+    assert bait_left == 0
