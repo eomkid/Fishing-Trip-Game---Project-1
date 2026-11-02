@@ -53,3 +53,6 @@ class Player:
         elif self.fish_stored == []:
             print("I've been looking for like 5 whole nanoseconds and I dont see anything in here\n"
                   "Maybe try catching something before you try looking at your haul.")
+
+
+player1 = Player()
