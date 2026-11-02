@@ -1,3 +1,6 @@
+from random import choice
+
+
 class Fish:
     def __init__(self):
         self.fishes_and_prices = {"Black Crappie": 20, "Goldfish": 3, "Rainbow Trout": 50, "Rainbow Parrotfish": 25,
@@ -6,3 +9,16 @@ class Fish:
     def take_bait(self, bait):
         bait -= 1
         return bait
+
+    def random_fish_pull(self, caught_or_not, bait):
+        if caught_or_not and bait >= 1:
+            fish_caught = choice(list(self.fishes_and_prices))
+            fish_price_check = self.fishes_and_prices[fish_caught]
+            bait_left = self.take_bait(bait)
+            return fish_caught, fish_price_check, bait_left
+        elif caught_or_not and bait == 0:
+            fish_caught = "Goldfish"
+            fish_price_check = self.fishes_and_prices[fish_caught]
+            return fish_caught, fish_price_check
+        elif not caught_or_not and bait >= 1:
+            return self.take_bait(bait)
