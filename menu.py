@@ -38,6 +38,12 @@ class MainMenu:
             if player_choice == 3:
                 self.check_player_money()
 
+            if player_choice == 4:
+                self.buy_bait()
+
+            if player_choice == 5:
+                self.look_at_haul()
+
     def fish(self):
         fish_caught, fish_price_check = player.player1.fishing_action()
         if fish_caught != "":
@@ -62,6 +68,25 @@ class MainMenu:
 
     def check_player_money(self):
         player.player1.check_money()
+
+    def buy_bait(self):
+        print("Entering 0 if you no longer wish to go through with your bait purchase \n")
+        print(f"You currently have {player.player1.bait} bait.")
+        bait_purchase_amount = int(input(
+            "Please enter the amount of bait ($25 per) you would like to purchase (Whole numbers only).\n"))
+        purchase_cost = bait_purchase_amount * 25
+        if bait_purchase_amount == 0:
+            pass
+        while purchase_cost > player.player1.money and bait_purchase_amount != 0:
+            print(
+                f"You don't have enough money for that purchase. \nYou only have ${player.player1.money} and that amount of bait would cost ${purchase_cost}\n")
+            bait_purchase_amount = int(
+                input("Please enter a smaller amount of bait ($25) to purchase.\n"))
+            purchase_cost = bait_purchase_amount * 25
+        player.player1.money -= purchase_cost
+        player.player1.bait += bait_purchase_amount
+        print(
+            f"You bought {bait_purchase_amount} bait. \nYou have ${player.player1.money} left.\n")
 
 
 menu = MainMenu()
