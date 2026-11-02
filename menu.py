@@ -1,5 +1,6 @@
 import player
 import fish as fh
+player.player1.load()
 
 
 class MainMenu:
@@ -26,6 +27,7 @@ class MainMenu:
                 continue
 
             if player_choice == 6:
+                player.player1.save()
                 play_state = "N"
                 break
 
