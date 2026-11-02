@@ -1,6 +1,5 @@
 from random import randint
 from fish import Fish
-fish = Fish()
 
 
 class Player:
@@ -18,6 +17,7 @@ class Player:
             return False
 
     def fishing_action(self):
+        fish = Fish()
         catch_or_not = self.catch_check()
         fish_caught, fish_price_check, bait_left = fish.random_fish_pull(
             catch_or_not, bait=self.bait)
@@ -27,6 +27,7 @@ class Player:
         return fish_caught, fish_price_check
 
     def add_money(self, fish_to_sell: str):
+        fish = Fish()
         if fish_to_sell != "" and fish_to_sell in fish.fishes_and_prices:
             self.money += fish.fishes_and_prices[fish_to_sell]
         else:
