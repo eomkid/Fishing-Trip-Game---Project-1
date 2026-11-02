@@ -1,5 +1,9 @@
 from random import randint
 from fish import Fish
+import json
+from pathlib import Path
+
+save_file = Path("player_save.json")
 
 
 class Player:
@@ -53,6 +57,15 @@ class Player:
         elif self.fish_stored == []:
             print("I've been looking for like 5 whole nanoseconds and I dont see anything in here\n"
                   "Maybe try catching something before you try looking at your haul.")
+
+    def save(self):
+        """Saves player data to a json file."""
+        data = {
+            "name": self.name,
+            "money": self.money,
+            "bait": self.bait,
+            "fish_stored": self.fish_stored
+        }
 
 
 player1 = Player()
