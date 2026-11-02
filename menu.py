@@ -17,7 +17,7 @@ class MainMenu:
 
     def menu_choice(self, play_state: str):
         while play_state.upper() != "N":
-            self.menu_display
+            self.menu_display()
             try:
                 """Error handling for invalid input in main menu"""
                 player_choice = int(
