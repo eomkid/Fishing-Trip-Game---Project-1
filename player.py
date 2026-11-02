@@ -74,5 +74,25 @@ class Player:
             print(
                 f"The game could not be save, as an error occurred: {OSError}")
 
+    def load(self):
+        """Loads a save file if one exists on the users computer"""
+        if not save_file.exists():
+            print("No save file found. Starting a new game.")
+            return False
+
+        try:
+            with open(save_file, "r") as file:
+                data = json.load(file)
+            self.name = data.get("name", "Player1")
+            self.money = data.get("money", 100)
+            self.bait = data.get("bait", 0)
+            self.fish_stored = data.get("fish_stored", [])
+            print(f"Welcome back to the pond, {self.name}!")
+            return True
+        except (json.JSONDecodeError, OSError, KeyError) as error:
+            print(
+                f"Your save file is damaged and/or unreadable ({error}). \nSo a new game will take it's place")
+            return False
+
 
 player1 = Player()
