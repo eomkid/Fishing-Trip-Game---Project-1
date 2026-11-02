@@ -38,3 +38,17 @@ class Player:
         else:
             print(
                 f"You don't have enough money for that. \nYou only have ${self.money}")
+
+    def check_money(self):
+        print(f"\nYou have ${self.money}")
+        print("...")
+        print("So are you willing to share?\n")
+
+    def check_haul(self):
+        if self.fish_stored != []:
+            print("You have mighty haul here \nSo far you've caught:")
+            for fish in self.fish_stored:
+                print(fish)
+        elif self.fish_stored == []:
+            print("I've been looking for like 5 whole nanoseconds and I dont see anything in here\n"
+                  "Maybe try catching something before you try looking at your haul.")
