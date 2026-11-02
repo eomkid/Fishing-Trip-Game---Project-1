@@ -16,8 +16,8 @@ def main():
 Good let me give you the run down
 The game is very simple you Fish!!!, and if you get lucky
 You catch whatever you hook, then you have the option to sell it now or later
-Bare in mind though if you dont sell your fish before you call it a day
-Back in the pond they go.
+Anything you catch will stay in a save file till the next time you return
+Unless it become corrupted :(
 Good luck have fun
 Also I suggest using bait""")
         player.player1.load()
