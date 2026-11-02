@@ -28,10 +28,15 @@ class MainMenu:
             if player_choice == 6:
                 play_state = "N"
                 break
+
             if player_choice == 1:
                 self.fish()
+
             if player_choice == 2:
                 self.sell_fish()
+
+            if player_choice == 3:
+                self.check_player_money()
 
     def fish(self):
         fish_caught, fish_price_check = player.player1.fishing_action()
@@ -54,6 +59,9 @@ class MainMenu:
         player.player1.add_money(fish_to_sell)
         print(f"Pleasure doing business with you")
         player.player1.fish_stored.remove(fish_to_sell)
+
+    def check_player_money(self):
+        player.player1.check_money()
 
 
 menu = MainMenu()
