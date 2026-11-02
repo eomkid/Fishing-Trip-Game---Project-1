@@ -116,7 +116,3 @@ class MainMenu:
 
     def look_at_haul(self):
         player.player1.check_haul()
-
-
-menu = MainMenu()
-menu.menu_choice("y")
