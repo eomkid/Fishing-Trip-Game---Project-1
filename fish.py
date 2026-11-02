@@ -15,17 +15,23 @@ class Fish:
             fish_caught = choice(list(self.fishes_and_prices))
             fish_price_check = self.fishes_and_prices[fish_caught]
             bait_left = self.take_bait(bait)
+            print(
+                f"Nice nice, you caught a {fish_caught} I would say you could sell it for about ${fish_price_check}")
             return fish_caught, fish_price_check, bait_left
 
         elif caught_or_not and bait == 0:
             fish_caught = "Goldfish"
             fish_price_check = self.fishes_and_prices[fish_caught]
+            print(
+                f"You caught a {fish_caught} :| \nIt's not worth much only ${fish_price_check}\n")
             return fish_caught, fish_price_check, bait
 
         elif not caught_or_not and bait >= 1:
+            print("Dang that fish was such a monster it snapped the line and stole the bait.\n What a waste of good bait.")
             return "", 0, self.take_bait(bait)
 
         elif not caught_or_not and bait == 0:
+            print("Don't ask me how... \nBut the Goldfish broke the line and got away \nYou might wanna get a better fishing line just saying.")
             return "", 0, bait
         else:
             return "", 0, bait
