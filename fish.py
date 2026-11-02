@@ -6,11 +6,11 @@ class Fish:
         self.fishes_and_prices = {"Black Crappie": 20, "Goldfish": 3, "Rainbow Trout": 50, "Rainbow Parrotfish": 25,
                                   "Bass": 10, "Lionfish": 50, "Squidward": 15, "Whale Shark": 100, "Orca": 99, "Nurse Shark": 70}
 
-    def take_bait(self, bait):
+    def take_bait(self, bait: int):
         bait -= 1
         return bait
 
-    def random_fish_pull(self, caught_or_not, bait):
+    def random_fish_pull(self, caught_or_not: bool, bait: int):
         if caught_or_not and bait >= 1:
             fish_caught = choice(list(self.fishes_and_prices))
             fish_price_check = self.fishes_and_prices[fish_caught]
