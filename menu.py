@@ -1,6 +1,5 @@
 import player
 import fish as fh
-player.player1.load()
 
 
 class MainMenu:
