@@ -88,6 +88,9 @@ class MainMenu:
         print(
             f"You bought {bait_purchase_amount} bait. \nYou have ${player.player1.money} left.\n")
 
+    def look_at_haul(self):
+        player.player1.check_haul()
+
 
 menu = MainMenu()
 menu.menu_choice("y")
