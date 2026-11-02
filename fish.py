@@ -16,9 +16,14 @@ class Fish:
             fish_price_check = self.fishes_and_prices[fish_caught]
             bait_left = self.take_bait(bait)
             return fish_caught, fish_price_check, bait_left
+
         elif caught_or_not and bait == 0:
             fish_caught = "Goldfish"
             fish_price_check = self.fishes_and_prices[fish_caught]
-            return fish_caught, fish_price_check
+            return fish_caught, fish_price_check, bait
+
         elif not caught_or_not and bait >= 1:
-            return self.take_bait(bait)
+            return None, 0, self.take_bait(bait)
+
+        elif not caught_or_not and bait == 0:
+            return None, 0, bait
