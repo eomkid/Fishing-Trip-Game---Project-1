@@ -38,3 +38,39 @@ def test_take_money_not_enough(capsys):
     captured = capsys.readouterr()
     assert "You don't have enough money" in captured.out
     assert player1.money == 100
+
+
+def test_save_and_load(tmp_path, monkeypatch):
+    """Test that a save load restores the player data.
+    """
+    fake_save = tmp_path / "test_save.json"
+    monkeypatch.setattr("player.save_file", fake_save)
+
+    playey1 = Player()
+    playey1.money = 250
+    playey1.bait = 4
+    playey1.fish_stored = ["Bass", "Goldfish"]
+    playey1.name = "TestAngler"
+
+    playey1.save()
+    assert fake_save.exists()
+
+    # Create a brand-new player and load into it
+    player2 = Player()
+    success = player2.load()
+    assert success is True
+    assert player2.money == 250
+    assert player2.bait == 4
+    assert player2.fish_stored == ["Bass", "Goldfish"]
+    assert player2.name == "TestAngler"
+
+
+def test_load_when_no_file_exists(tmp_path, monkeypatch, capsys):
+    fake_save = tmp_path / "does_not_exist.json"
+    monkeypatch.setattr("player.save_file", fake_save)
+
+    player1 = Player()
+    success = player1.load()
+    assert success is False
+    captured = capsys.readouterr()
+    assert "No save file found" in captured.out
