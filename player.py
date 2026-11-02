@@ -66,6 +66,13 @@ class Player:
             "bait": self.bait,
             "fish_stored": self.fish_stored
         }
+        try:
+            with open(save_file, "w") as f:
+                json.dump(data, f, indent=4)
+            print("Game saved.")
+        except OSError:
+            print(
+                f"The game could not be save, as an error occurred: {OSError}")
 
 
 player1 = Player()
