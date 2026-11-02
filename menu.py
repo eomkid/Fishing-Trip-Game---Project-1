@@ -29,7 +29,7 @@ class MainMenu:
                 player.player1.save()
                 play_state = "N"
                 print("""Calling it a day already
-                        Well hope you had fun but lets see what you got from today.""")
+Well hope you had fun but lets see what you got from today.""")
                 if not player.player1.fish_stored:
                     print("Oh you didn't catch anything :( \nBad RNG I guess")
                 else:
