@@ -23,7 +23,9 @@ class Fish:
             return fish_caught, fish_price_check, bait
 
         elif not caught_or_not and bait >= 1:
-            return None, 0, self.take_bait(bait)
+            return "", 0, self.take_bait(bait)
 
         elif not caught_or_not and bait == 0:
-            return None, 0, bait
+            return "", 0, bait
+        else:
+            return "", 0, bait
