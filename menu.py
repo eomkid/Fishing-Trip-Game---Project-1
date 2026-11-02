@@ -29,6 +29,30 @@ class MainMenu:
             if player_choice == 6:
                 player.player1.save()
                 play_state = "N"
+                print("""Calling it a day already
+                        Well hope you had fun but lets see what you got from today.""")
+                if not player.player1.fish_stored:
+                    print("Oh you didn't catch anything :( \nBad RNG I guess")
+                else:
+                    print("Nicely done I respect the haul enjoy your dinner :)")
+                    for fish in player.player1.fish_stored:
+                        print(fish)
+
+                print()
+
+                money = player.player1.money
+                bait = player.player1.bait
+
+                if money >= 10000:
+                    print(f"${money} Are you ok?")
+                elif money <= 24 and bait != 0:
+                    print("Maybe I should've made bait cheaper")
+                    print(
+                        f"Look at the bright side you had {bait} bait leftover that has to count for something.")
+                elif 100 < money < 1000:
+                    print(f"Pure profit :) \nWalking away with ${money}")
+                else:
+                    print("ByeBye Thank yous for playing :)")
                 break
 
             if player_choice == 1:
